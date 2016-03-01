@@ -1,0 +1,71 @@
+doctype html
+html(lang='ru')
+    head
+        include head
+    body
+        .wraperz
+            .tomenu1
+                include topmenu
+            .header
+                include header
+            #main.contents
+                #mcont
+                    .bner
+                        .bner-lents
+                    #fehu-content.fercat
+                        div
+                            .d2tit-block
+                                h1#h1wordes.nw-top.full-h1 #{movie.title_ru} скачать фильм
+                            .newcatfes
+                                #read-more
+                                    img.infotos(src=movie.poster, title='Все фильмы онлайн бесплатно', alt='Онлайн фильмы бесплатно')
+                                    != description
+                            .fu2-menu.fu2-blo
+                                ul
+                                    li
+                                        a(href=movie.url)
+                                            i.fa.fa-book
+                                            |  Фильм
+                                    li
+                                        a(href=movie.url + '/trailer')
+                                            i.fa.fa-caret-square-o-right
+                                            |  Трейлер
+                                    li
+                                        a(href=movie.url + '/picture')
+                                            i.fa.fa-picture-o
+                                            |  Кадры
+                                    li
+                                        a(href=movie.url + '/online')
+                                            i.fa.fa-play-circle
+                                            |  Онлайн
+                                    li
+                                        .glosactive
+                                            a(href=movie.url + '/download')
+                                                i.fa.fa-upload
+                                                |  Скачать
+                                .clearfix
+                            .player-glav
+                                #vid-ok.play-table
+                                    if abuse.indexOf(movie.id) == -1
+                                        #yohoho-torrent(data-title=movie.title + ' (' + movie.year + ')')
+                                    else
+                                        p(style='margin:30px auto; text-align:center; color:#fff;') Фильм закрыт по просьбе правообладателя!
+                                .clearfix
+                            .catfat(style='margin: 0 0 -1px;')
+                                h2 Здесь Вы сможете скачать фильм бесплатно
+                                .cat-treilrt
+                                    = movie.description
+                                .cat-treilrt2
+                                    != movie.actors_url
+                                .clearfix
+                            each categories in movies
+                                if categories && categories.length
+                                    each data in categories
+                                        .f-stron.f-related-title
+                                            i.fa.fa-bars
+                                            != ' ' + data.name + ' '
+                                        .relanava
+                                            each movie in data.related
+                                                include movie
+                footer
+                    include footer

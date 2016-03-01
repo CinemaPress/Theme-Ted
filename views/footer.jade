@@ -1,0 +1,74 @@
+.foot1
+    .row-fluid
+        .col-m-a
+            .col-mhead
+                i.fa.fa-info-circle
+                |  Информация
+            span Для связи с администрацией сайта используйте email:
+            = ' '
+            b#cinemapress
+            script= "document.getElementById('cinemapress').textContent = '" + email + "'.replace('CinemaPress','@');"
+        .col-m-a.col-m-a2
+            .col-mhead
+                i.fa.fa-map-marker
+                |  Навигатор
+            ul
+                li
+                    a(href='/#{urls.type}/Сериалы') Сериалы онлайн
+                li
+                    a(href='/#{urls.year}/2016?sort=premiere-up') Фильмы новинки
+                li
+                    a(href='/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Лучшие фильмы
+        .col-m-a.col-m-a2
+            .col-mhead
+                i.fa.fa-paperclip
+                |  Разделы
+            ul
+                li
+                    a(href='/#{urls.year}/2016') Фильмы 2016 года
+                li
+                    a(href='/#{urls.type}/Фильмы?sort=year-up') Новое на сайте
+                li
+                    a(href='/#{urls.type}/Сериалы?sort=year-up') Премьеры сериалов
+        .col-m-a.col-m-a2
+            .col-mhead
+                i.fa.fa-magic
+                |  Рейтинговые
+            ul
+                li
+                    a(href='/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Фильмы
+                li
+                    a(href='/#{urls.type}/Сериалы?sort=kinopoisk-rating-up') Сериалы
+                li
+                    a(href='/#{urls.type}/Мультфильмы?sort=kinopoisk-rating-up') Мультфильмы
+    .clearfix
+    .foo-f
+        .pull-left.f-copy
+            div(style='margin: -12px 0;')
+                a(href='http://CinemaPress.org/') Самообновляемые кино-сайты
+            .f-copy-comodo © 2016
+                = ' '
+                a(href='http://CinemaPress.org/') CinemaPress
+        .pull-left.f-links
+            a.f-lin-1(href='/') Лучшие фильмы онлайн бесплатно
+            a.f-lin-2(href='/#{urls.type}/Сериалы') Смотреть сериалы онлайн в хорошем качестве
+        .pull-left.f-m16 18+
+        if social.vk
+            .pull-left.f-lin-pravo
+                a(href=social.vk, rel='nofollow', target='_blank')
+                    i.fa.fa-vk
+                    |  Мы в Вконтакте
+        if social.twitter
+            .pull-left.f-lin-pravo
+                a(href=social.twitter, rel='nofollow', target='_blank')
+                    i.fa.fa-twitter
+                    |  Мы в Twitter
+        if social.facebook
+            .pull-left.f-lin-pravo
+                a(href=social.facebook, rel='nofollow', target='_blank')
+                    i.fa.fa-facebook
+                    |  Мы в facebook
+.clearfix
+script(src='http://yohoho.xyz/yo.js')
+script
+    include ../public/js/script.js

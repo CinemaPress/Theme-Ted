@@ -1,0 +1,91 @@
+doctype html
+html(lang='ru')
+    head
+        include head
+    body
+        .wraperz
+            .tomenu1
+                include topmenu
+            .header
+                include header
+            #main.contents
+                #mcont
+                    .bner
+                        .bner-lents
+                    h1.nw-top.full-h1= title
+                    .newcatfes
+                        #read-more
+                            img.infotos(src='/img/photo.png', title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
+                            != description
+                    .cater-tur
+                        style
+                            | #news_set_sort img {width:20px; margin-left:5px;}
+                        #news_set_sort
+                            each s in sort
+                                if (s.active)
+                                    a.activaa(href=s.url)
+                                        if s.active == 'up'
+                                            i.fa.fa-arrow-up
+                                            | &nbsp;
+                                            != s.name
+                                            | &nbsp;
+                                            i.fa.fa-arrow-up
+                                        else
+                                            i.fa.fa-arrow-down
+                                            | &nbsp;
+                                            != s.name
+                                            | &nbsp;
+                                            i.fa.fa-arrow-down
+                                else
+                                    a(href=s.url)!= s.name
+                        #fehu-content.fercat
+                            if movies.length > 0
+                                each movie in movies
+                                    include movie
+                            else
+                                p(style='text-align: center; font-size: 24px; color: #fff; padding: 300px;') Нет фильмов!
+                            if page.prev || page.next
+                                .feh-pag
+                                    .fe-craypagin
+                                        if page.prev
+                                            a(href=page.prev)
+                                                i.fa.fa-angle-double-left
+                                        else
+                                            span
+                                                i.fa.fa-angle-double-left
+                                    .fe-craypagin
+                                        if page.next
+                                            a(href=page.next)
+                                                i.fa.fa-angle-double-right
+                                        else
+                                            span
+                                                i.fa.fa-angle-double-right
+                                .clearfix
+                        .cate-block
+                            if top
+                                #fuulnewsbox.top-janr
+                                    .top-j-tit
+                                        i.fa.fa-bars
+                                        |  ТОП в категории
+                                    ul.year-serial
+                                        each movie in top
+                                            li
+                                                a(href=movie.url)
+                                                    span= movie.year
+                                                    = movie.title_ru
+                                    .top-j-tit
+                                        i.fa.fa-bars
+                                        |  По годам
+                                    #yerk-links
+                                        a.label-yerks(href='/#{urls.year}/2016')
+                                            b 2016
+                                            |  год
+                                        a.label-yerks(href='/#{urls.year}/2015')
+                                            b 2015
+                                            |  год
+                                        a.label-yerks(href='/#{urls.year}/2014')
+                                            b 2014
+                                            |  год
+                .clearfix
+                footer
+                    include footer

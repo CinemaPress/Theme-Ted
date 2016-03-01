@@ -1,0 +1,97 @@
+.tomkino_gbenu2
+    ul.robik1
+        li.dropdown.dropibunbon
+            a#dropdownMenu1.ff_2d3(href='#', data-toggle='dropdown')
+                | Каталог
+                = ' '
+                i.fa.fa-angle-down.farkrug.transi
+            .dropdown-menu.fly_menujanr(role='menu', aria-labelledby='dropdownMenu1')
+                .lio
+                    .lio_le
+                        .drococo
+                            a(href='/#{urls.year}/2016?sort=premiere-up')
+                                i.fa.fa-ticket
+                                strong Новинки кино
+                            a(href='/#{urls.type}/Мультфильмы')
+                                i.fa.fa-smile-o
+                                |  Мультфильмы
+                            a(href='/#{urls.type}/Сериалы')
+                                i.fa.fa-female
+                                |  Сериалы онлайн
+                            .clearfix
+                        .tabluli
+                            ul
+                                li
+                                    a(href='/#{urls.genre}/Биография') Биография
+                                li
+                                    a(href='/#{urls.genre}/Боевик') Боевики
+                                li
+                                    a(href='/#{urls.genre}/Вестерн') Вестерны
+                                li
+                                    a(href='/#{urls.genre}/Военный') Военные
+                                li
+                                    a(href='/#{urls.genre}/Детектив') Детективы
+                                li
+                                    a(href='/#{urls.genre}/Детский') Детские
+                                li
+                                    a(href='/#{urls.genre}/Документальный') Документальные
+                            ul
+                                li
+                                    a(href='/#{urls.genre}/Драма') Драма
+                                li
+                                    a(href='/#{urls.genre}/История') Исторические
+                                li
+                                    a(href='/#{urls.genre}/Для взрослых') Для взрослых
+                                li
+                                    a(href='/#{urls.genre}/Комедия') Комедии
+                                li
+                                    a(href='/#{urls.genre}/Криминал') Криминал
+                                li
+                                    a(href='/#{urls.genre}/Мелодрама') Мелодрамы
+                                li
+                                    a(href='/#{urls.genre}/Приключения') Приключения
+                            ul
+                                li
+                                    a(href='/#{urls.genre}/Семейный') Семейные
+                                li
+                                    a(href='/#{urls.genre}/Спорт') Спорт
+                                li
+                                    a(href='/#{urls.genre}/Триллер') Триллер
+                                li
+                                    a(href='/#{urls.genre}/Ужасы') Ужасы
+                                li
+                                    a(href='/#{urls.genre}/Фантастика') Фантастика
+                                li
+                                    a(href='/#{urls.genre}/Фэнтези') Фэнтези
+                    .lio_re
+                        .ker-ye
+                            i.fa.fa-filter
+                            |  По годам
+                        ul
+                            li
+                                a(href='/#{urls.year}/2014/') 2014 год
+                            li
+                                a(href='/#{urls.year}/2015/') 2015 год
+                            li
+                                a(href='/#{urls.year}/2016/') 2016 год
+                        .ke_alink
+                            a.ilast-n(href='/#{urls.country}/США')
+                                i.fa.fa-caret-right
+                                |  Лучшие из США
+                            a.ilast-n(href='/#{urls.country}/Россия')
+                                i.fa.fa-caret-right
+                                |  Лучшие из России
+        li
+            a.ff_2d3(href='/#{urls.type}/Фильмы') Фильмы
+        li
+            a.ff_2d3(href='/#{urls.type}/Сериалы') Сериалы
+        li
+            a.ff_2d3(href='/#{urls.type}/Мультфильмы') Мультфильмы
+    .robik2
+        a(href='/') Кино онлайн
+    .robik3
+        form.ttops-searh(action='/#{urls.search}/title', method='get')
+            #sidsch.form-group
+                input#story.form-control(type='text', name='q', placeholder='Поиск ...', required='')
+                button(type='submit', value='')
+                    i.fa.fa-search

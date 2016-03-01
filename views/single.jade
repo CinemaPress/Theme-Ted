@@ -1,0 +1,163 @@
+doctype html
+html(lang='ru')
+    head
+        include head
+    body
+        .wraperz
+            .tomenu1
+                include topmenu
+            .header
+                include header
+            .bner
+                .bner-lents
+            .newcatfes
+                #read-more
+                    img.infotos(src=movie.poster, title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
+                    != description
+            .bner
+                .bner-lents
+            #main.contents
+                #mcont
+                    .bner
+                        .bner-lents
+                    #fehu-content.fercat
+                        #full-film
+                            .fu-left
+                                .fu-poster
+                                    a(rel='nofollow', href=movie.url + '/online')
+                                        img(src=movie.poster, alt='#{movie.title} смотреть онлайн', title='Фильм #{movie.title} онлайн бесплатно')
+                                        i.fa.fa-play-circle
+                                .fu-posi-reit
+                                    .rshare.resmall
+                                        .revoshare(data-type='vk')
+                                            i.ric.rico-vkontakte(title='ВКонтакте')
+                                        .revoshare(data-type='ok')
+                                            i.ric.rico-ok(title='Одноклассники')
+                                        .revoshare(data-type='mr')
+                                            i.ric.rico-mail(title='Мой Мир@Mail.Ru')
+                                        .revoshare(data-type='fb')
+                                            i.ric.rico-facebook(title='Facebook')
+                                        .revoshare(data-type='tw')
+                                            i.ric.rico-twitter(title='Twitter')
+                                        .revoshare(data-type='gp')
+                                            i.ric.rico-google(title='Google+')
+                                        .revoshare(data-type='lj')
+                                            i.ric.rico-livej(title='LiveJournal')
+                                        .clearfix
+                            .fu-right.kinGb
+                                .fudaptiv
+                                    .fu-ri-info
+                                        .ugl-sid.fu-shad1
+                                        .fus-titl
+                                            h1
+                                                if movie.title_ru
+                                                    = movie.title_ru + ' '
+                                                else
+                                                    =movie.title_en + ' '
+                                                span смотреть онлайн
+                                            strong.fus-ptit #{movie.title_en}
+                                        .fus-reitlent
+                                            b Рейтинг КиноПоиск:
+                                            span.spa= movie.kp_rating/10
+                                            | /
+                                            span.spa 10
+                                            i.fusgolos
+                                                | (
+                                                span= movie.kp_vote
+                                                |  голосов)
+                                            br
+                                            b Рейтинг IMDB:
+                                            span.spa= movie.imdb_rating / 10
+                                            | /
+                                            span.spa 10
+                                            i.fusgolos
+                                                | (
+                                                span= movie.imdb_vote
+                                                |  голосов)
+                                        .fus-yer-time
+                                            .pull-left(style='max-width: 440px;')
+                                                .fus-yer
+                                                    | Год:
+                                                    != ' ' + movie.year_url
+                                                    br
+                                                    | Страна:
+                                                    != ' ' + movie.countries_url
+                                                .fus-ganre
+                                                    != movie.genres_url
+                                            .clearfix
+                                        .fus-reitlent
+                                            b Актеры:
+                                            = ' '
+                                            != movie.actors_url
+                                        .f1-direct
+                                            span.f2-director
+                                                i.bi1 Режиссер:
+                                                = ' '
+                                                span
+                                                    != movie.directors_url
+                                            span.f2-premier
+                                                i.bi1 Дата выхода:
+                                                = ' '
+                                                span.prem2rus= movie.premiere
+                                    .fu-ri-rklm
+                                        | реклама
+                                .fu2-menu.fu2-menu-osnov
+                                    .ugl-sid.fum-shadm
+                                    ul
+                                        li
+                                            .glosactive
+                                                a(href=movie.url)
+                                                    i.fa.fa-book
+                                                    |  Фильм
+                                        li
+                                            a(href=movie.url + '/trailer')
+                                                i.fa.fa-caret-square-o-right
+                                                |  Трейлер
+                                        li
+                                            a(href=movie.url + '/picture')
+                                                i.fa.fa-picture-o
+                                                |  Кадры
+                                        li
+                                            a(href=movie.url + '/online')
+                                                i.fa.fa-play-circle
+                                                |  Онлайн
+                                        li
+                                            a(href=movie.url + '/download')
+                                                i.fa.fa-upload
+                                                | Скачать
+                            .clearfix
+                            if movie.description
+                                .f-story-clas
+                                    .f-stron
+                                        i.fa.fa-bars
+                                        |  О фильме
+                                    #news-id-go.well= movie.description
+                                    script
+                                        | $(document).ready(function(){$('#news-id-go').each(function(){var el=$(this);if(el.height()>100){el.addClass('small-fulext');$('<div class="read-morebful"/>').text('Читать далее...').insertAfter(el);}});$('.read-morebful').click(function(){$(this).prev().removeClass('small-fulext');$(this).hide();});});
+                            .f-story-play(style='padding: 5px 10px;')
+                                h2.f-stron
+                                    i.fa.fa-bars
+                                    |  Смотреть фильм
+                                    span= ' ' + movie.title_ru + ' (' + movie.year + ') '
+                                    | онлайн бесплатно в хорошем 720 HD качестве
+                                .fu2-linplay
+                                    if abuse.indexOf(movie.id) == -1
+                                        #yohoho(data-title=movie.title + ' (' + movie.year + ')')
+                                    else
+                                        p(style='margin:30px auto; text-align:center; color:#000;') Фильм закрыт по просьбе правообладателя!
+                            if disqus
+                                #disqus_thread(style='background: #666 url(/img/bg7.png) repeat; padding:20px; margin: 0;')
+                                script
+                                    | var disqus_config=function(){this.page.url="http://#{domain}#{movie.url}",this.page.identifier="http://#{domain}#{movie.url}"};!function(){var e=document,t=e.createElement("script");t.src="//#{disqus}.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}();
+                            each categories in movies
+                                if categories && categories.length
+                                    each data in categories
+                                        .f-stron.f-related-title
+                                            h2
+                                                i.fa.fa-bars
+                                                != ' ' + data.name
+                                        .relanava
+                                            each movie in data.related
+                                                include movie
+                footer
+                    include footer

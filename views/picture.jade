@@ -1,0 +1,70 @@
+doctype html
+html(lang='ru')
+    head
+        include head
+    body
+        .wraperz
+            .tomenu1
+                include topmenu
+            .header
+                include header
+            #main.contents
+                #mcont
+                    .bner
+                        .bner-lents
+                    #fehu-content.fercat
+                        div
+                            .d2tit-block
+                                h1#h1wordes.nw-top.full-h1 #{movie.title_ru} кадры
+                            .newcatfes
+                                #read-more
+                                    img.infotos(src=movie.poster, title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
+                                    != description
+                            .fu2-menu.fu2-blo
+                                ul
+                                    li
+                                        a(href=movie.url)
+                                            i.fa.fa-book
+                                            |  Фильм
+                                    li
+                                        a(href=movie.url + '/trailer')
+                                            i.fa.fa-caret-square-o-right
+                                            |  Трейлер
+                                    li
+                                        .glosactive
+                                            a(href=movie.url + '/picture')
+                                                i.fa.fa-picture-o
+                                                |  Кадры
+                                    li
+                                        a(href=movie.url + '/online')
+                                            i.fa.fa-play-circle
+                                            |  Онлайн
+                                    li
+                                        a(href=movie.url + '/download')
+                                            i.fa.fa-upload
+                                            |  Скачать
+                                .clearfix
+                            .player-glav
+                                #vid-ok.play-table
+                                    if movie.pictures.length
+                                        each pic in movie.pictures
+                                            img(src=pic, style='width:60%; border: 2px #ccc solid; text-align:center; margin: 20px auto; border-radius: 10px;')
+                                .clearfix
+                            .catfat(style='margin: 0 0 -1px;')
+                                h2 Здесь Вы сможете посмотреть кадры из фильма
+                                .cat-treilrt
+                                    = movie.description
+                                .cat-treilrt2
+                                    != movie.actors_url
+                                .clearfix
+                            each categories in movies
+                                if categories && categories.length
+                                    each data in categories
+                                        .f-stron.f-related-title
+                                            i.fa.fa-bars
+                                            != ' ' + data.name + ' '
+                                        .relanava
+                                            each movie in data.related
+                                                include movie
+                footer
+                    include footer
