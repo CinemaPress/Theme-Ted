@@ -1,12 +1,12 @@
-# Ted
+# Theme Ted
 :art: Шаблон кино-сайта Ted (kinogb.net)
 
 ## Установка
-- Скачиваете архив;
-- Распакавываете в папку /themes/ted
+1. [Скачать архив](https://github.com/CinemaPress/Theme-Ted/archive/master.zip)
+2. Распаковать содержимое папки **/Theme-Ted** в папку **/themes/ted**
+3. Изменить название темы в **/config/config.js** ("theme" = "ted")
 
-###### Должно выглядеть так:
+## Установка через установщик тем CinemaPress CMS
 ```
-/themes/ted/public
-/themes/ted/views
+sh theme.sh ted
 ```

@@ -4,14 +4,15 @@
             img.fleximg(src=movie.poster, alt='#{movie.title} смотреть онлайн бесплатно')
             .shad-retvi.transi
             i.fa.fa-play.transi.playcik
-    .film3D-sh
-        span.CAM-Rip.jelt-hd
-            img(src='/img/kp.png', style='width:20px;')
-            = ' ' + movie.kp_rating/10
-            br
-            br
-            img(src='/img/imdb.png', style='width:20px;')
-            = ' ' + movie.imdb_rating / 10
+    if movie.kp_rating || movie.imdb_rating
+        .film3D-sh
+            span.CAM-Rip.jelt-hd
+                img(src='/img/kp.png', style='width:20px;')
+                = ' ' + movie.kp_rating/10
+                br
+                br
+                img(src='/img/imdb.png', style='width:20px;')
+                = ' ' + movie.imdb_rating / 10
     .film3D-h3
         a.ami1(href=movie.url, title='#{movie.title} онлайн в хорошем качестве')= movie.title
     .film3D-year2 #{movie.year} #{movie.countries} #{movie.genres}

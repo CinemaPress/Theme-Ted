@@ -20,26 +20,27 @@ html(lang='ru')
                     .cater-tur
                         style
                             | #news_set_sort img {width:20px; margin-left:5px;}
-                        #news_set_sort
-                            each s in sort
-                                if (s.active)
-                                    a.activaa(href=s.url)
-                                        if s.active == 'up'
-                                            i.fa.fa-arrow-up
-                                            | &nbsp;
-                                            != s.name
-                                            | &nbsp;
-                                            i.fa.fa-arrow-up
-                                        else
-                                            i.fa.fa-arrow-down
-                                            | &nbsp;
-                                            != s.name
-                                            | &nbsp;
-                                            i.fa.fa-arrow-down
-                                else
-                                    a(href=s.url)!= s.name
+                        if sort
+                            #news_set_sort
+                                each s in sort
+                                    if (s.active)
+                                        a.activaa(href=s.url)
+                                            if s.active == 'up'
+                                                i.fa.fa-arrow-up
+                                                | &nbsp;
+                                                != s.name
+                                                | &nbsp;
+                                                i.fa.fa-arrow-up
+                                            else
+                                                i.fa.fa-arrow-down
+                                                | &nbsp;
+                                                != s.name
+                                                | &nbsp;
+                                                i.fa.fa-arrow-down
+                                    else
+                                        a(href=s.url)!= s.name
                         #fehu-content.fercat
-                            if movies.length > 0
+                            if movies && movies.length
                                 each movie in movies
                                     include movie
                             else
@@ -62,7 +63,7 @@ html(lang='ru')
                                                 i.fa.fa-angle-double-right
                                 .clearfix
                         .cate-block
-                            if top
+                            if top && top.length
                                 #fuulnewsbox.top-janr
                                     .top-j-tit
                                         i.fa.fa-bars

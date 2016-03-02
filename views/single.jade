@@ -57,44 +57,50 @@ html(lang='ru')
                                                 span смотреть онлайн
                                             strong.fus-ptit #{movie.title_en}
                                         .fus-reitlent
-                                            b Рейтинг КиноПоиск:
-                                            span.spa= movie.kp_rating/10
-                                            | /
-                                            span.spa 10
-                                            i.fusgolos
-                                                | (
-                                                span= movie.kp_vote
-                                                |  голосов)
-                                            br
-                                            b Рейтинг IMDB:
-                                            span.spa= movie.imdb_rating / 10
-                                            | /
-                                            span.spa 10
-                                            i.fusgolos
-                                                | (
-                                                span= movie.imdb_vote
-                                                |  голосов)
+                                            if movie.kp_rating
+                                                b Рейтинг КиноПоиск:
+                                                span.spa= movie.kp_rating/10
+                                                | /
+                                                span.spa 10
+                                                i.fusgolos
+                                                    | (
+                                                    span= movie.kp_vote
+                                                    |  голосов)
+                                            if movie.imdb_rating
+                                                br
+                                                b Рейтинг IMDB:
+                                                span.spa= movie.imdb_rating / 10
+                                                | /
+                                                span.spa 10
+                                                i.fusgolos
+                                                    | (
+                                                    span= movie.imdb_vote
+                                                    |  голосов)
                                         .fus-yer-time
                                             .pull-left(style='max-width: 440px;')
                                                 .fus-yer
-                                                    | Год:
-                                                    != ' ' + movie.year_url
-                                                    br
-                                                    | Страна:
-                                                    != ' ' + movie.countries_url
+                                                    if movie.year_url
+                                                        | Год:
+                                                        != ' ' + movie.year_url
+                                                    if movie.countries_url
+                                                        br
+                                                        | Страна:
+                                                        != ' ' + movie.countries_url
                                                 .fus-ganre
                                                     != movie.genres_url
                                             .clearfix
-                                        .fus-reitlent
-                                            b Актеры:
-                                            = ' '
-                                            != movie.actors_url
-                                        .f1-direct
-                                            span.f2-director
-                                                i.bi1 Режиссер:
+                                        if movie.actors_url
+                                            .fus-reitlent
+                                                b Актеры:
                                                 = ' '
-                                                span
-                                                    != movie.directors_url
+                                                != movie.actors_url
+                                        .f1-direct
+                                            if movie.directors_url
+                                                span.f2-director
+                                                    i.bi1 Режиссер:
+                                                    = ' '
+                                                    span
+                                                        != movie.directors_url
                                             span.f2-premier
                                                 i.bi1 Дата выхода:
                                                 = ' '
@@ -149,15 +155,16 @@ html(lang='ru')
                                 #disqus_thread(style='background: #666 url(/img/bg7.png) repeat; padding:20px; margin: 0;')
                                 script
                                     | var disqus_config=function(){this.page.url="http://#{domain}#{movie.url}",this.page.identifier="http://#{domain}#{movie.url}"};!function(){var e=document,t=e.createElement("script");t.src="//#{disqus}.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}();
-                            each categories in movies
-                                if categories && categories.length
-                                    each data in categories
-                                        .f-stron.f-related-title
-                                            h2
-                                                i.fa.fa-bars
-                                                != ' ' + data.name
-                                        .relanava
-                                            each movie in data.related
-                                                include movie
+                            if movies
+                                each categories in movies
+                                    if categories && categories.length
+                                        each data in categories
+                                            .f-stron.f-related-title
+                                                h2
+                                                    i.fa.fa-bars
+                                                    != ' ' + data.name
+                                            .relanava
+                                                each movie in data.related
+                                                    include movie
                 footer
                     include footer

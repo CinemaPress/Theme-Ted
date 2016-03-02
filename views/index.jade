@@ -9,36 +9,39 @@ html(lang='ru')
             .header
                 include header
             #main.contents
-                .mainfilms.jelt-polosk
-                    .mainf-newtit
-                        i.fa.fa-forward
-                        b= ' Премьеры фильмов '
-                        i.fa.fa-backward
-                        .r2d2 Смотрите фильмы онлайн бесплатно
-                    .fixur
-                        each movie in premieres
-                            include movie
-                    .clearfix
-                .mainfilms.jelt-polosk
-                    .mainf-newtit
-                        i.fa.fa-forward
-                        b= ' Лучшие фильмы 2016 года '
-                        i.fa.fa-backward
-                        .r2d2 Смотрите фильмы 2016 года онлайн бесплатно
-                    .fixur
-                        each movie in year
-                            include movie
-                    .clearfix
-                .mainfilms.jelt-polosk
-                    .mainf-newtit
-                        i.fa.fa-forward
-                        b= ' Топовые фильмы '
-                        i.fa.fa-backward
-                        .r2d2 Лучшие фильмы за все времена онлайн бесплатно
-                    .fixur
-                        each movie in bests
-                            include movie
-                    .clearfix
+                if premieres && premieres.length
+                    .mainfilms.jelt-polosk
+                        .mainf-newtit
+                            i.fa.fa-forward
+                            b= ' Премьеры фильмов '
+                            i.fa.fa-backward
+                            .r2d2 Смотрите фильмы онлайн бесплатно
+                        .fixur
+                            each movie in premieres
+                                include movie
+                        .clearfix
+                if year && year.length
+                    .mainfilms.jelt-polosk
+                        .mainf-newtit
+                            i.fa.fa-forward
+                            b= ' Лучшие фильмы 2016 года '
+                            i.fa.fa-backward
+                            .r2d2 Смотрите фильмы 2016 года онлайн бесплатно
+                        .fixur
+                            each movie in year
+                                include movie
+                        .clearfix
+                if bests && bests.length
+                    .mainfilms.jelt-polosk
+                        .mainf-newtit
+                            i.fa.fa-forward
+                            b= ' Топовые фильмы '
+                            i.fa.fa-backward
+                            .r2d2 Лучшие фильмы за все времена онлайн бесплатно
+                        .fixur
+                            each movie in bests
+                                include movie
+                        .clearfix
                 .newcatfes
                     #read-more
                         img.infotos(src='/img/photo.png', title='Все фильмы онлайн бесплатно', alt='Онлайн фильмы бесплатно')

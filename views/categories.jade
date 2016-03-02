@@ -15,11 +15,12 @@ html(lang='ru')
                             img.infotos(src='/img/photo.png', title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
                             != description
                     div(style='text-align:center; background: url(/img/bg7.png) repeat 50% 50% #2A323D; padding:30px;')
-                        each val, key in categories
-                            - size = 48 / categories.max
-                            if key != 'max'
-                                a(href=url + '/' + key, style='font-size:' + (24 + val * size) + 'px')= key
-                                span(style='font-size: 20px; color:#ccc;')!= '&nbsp;(' + val*9 + '&nbsp;шт.) '
+                        if categories
+                            each val, key in categories
+                                - size = 48 / categories.max
+                                if key != 'max'
+                                    a(href=url + '/' + key, style='font-size:' + (24 + val * size) + 'px')= key
+                                    span(style='font-size: 20px; color:#ccc;')!= '&nbsp;(' + val*9 + '&nbsp;шт.) '
                 .clearfix
                 footer
                     include footer
