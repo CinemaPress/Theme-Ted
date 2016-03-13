@@ -12,9 +12,9 @@ html(lang='ru')
                 #mcont
                     .newcatfes
                         #read-more
-                            img.infotos(src='/img/photo.png', title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
+                            img.infotos(src='/themes/ted/public/img/photo.png', title='Все фильмы онлайн бесплатно', alt='онлайн фильмы бесплатно')
                             != description
-                    div(style='text-align:center; background: url(/img/bg7.png) repeat 50% 50% #2A323D; padding:30px;')
+                    div(style='text-align:center; background: url(/themes/ted/public/img/bg7.png) repeat 50% 50% #2A323D; padding:30px;')
                         if categories
                             each val, key in categories
                                 - size = 48 / categories.max
