@@ -137,7 +137,7 @@ html(lang='ru')
                                     .f-stron
                                         i.fa.fa-bars
                                         |  О фильме
-                                    #news-id-go.well= movie.description
+                                    #news-id-go.well!= movie.description
                                     script
                                         | $(document).ready(function(){$('#news-id-go').each(function(){var el=$(this);if(el.height()>100){el.addClass('small-fulext');$('<div class="read-morebful"/>').text('Читать далее...').insertAfter(el);}});$('.read-morebful').click(function(){$(this).prev().removeClass('small-fulext');$(this).hide();});});
                             .f-story-play(style='padding: 5px 10px;')
