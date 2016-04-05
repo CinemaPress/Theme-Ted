@@ -14,44 +14,44 @@
                 |  Навигатор
             ul
                 li
-                    a(href='/#{urls.type}/Сериалы') Сериалы онлайн
+                    a(href='#{protocol}#{domain}/#{urls.type}/Сериалы') Сериалы онлайн
                 li
-                    a(href='/#{urls.year}/2016?sort=premiere-up') Фильмы новинки
+                    a(href='#{protocol}#{domain}/#{urls.year}/2016?sort=premiere-up') Фильмы новинки
                 li
-                    a(href='/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Лучшие фильмы
+                    a(href='#{protocol}#{domain}/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Лучшие фильмы
         .col-m-a.col-m-a2
             .col-mhead
                 i.fa.fa-paperclip
                 |  Разделы
             ul
                 li
-                    a(href='/#{urls.year}/2016') Фильмы 2016 года
+                    a(href='#{protocol}#{domain}/#{urls.year}/2016') Фильмы 2016 года
                 li
-                    a(href='/#{urls.type}/Фильмы?sort=year-up') Новое на сайте
+                    a(href='#{protocol}#{domain}/#{urls.type}/Фильмы?sort=year-up') Новое на сайте
                 li
-                    a(href='/#{urls.type}/Сериалы?sort=year-up') Премьеры сериалов
+                    a(href='#{protocol}#{domain}/#{urls.type}/Сериалы?sort=year-up') Премьеры сериалов
         .col-m-a.col-m-a2
             .col-mhead
                 i.fa.fa-magic
                 |  Рейтинговые
             ul
                 li
-                    a(href='/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Фильмы
+                    a(href='#{protocol}#{domain}/#{urls.type}/Фильмы?sort=kinopoisk-rating-up') Фильмы
                 li
-                    a(href='/#{urls.type}/Сериалы?sort=kinopoisk-rating-up') Сериалы
+                    a(href='#{protocol}#{domain}/#{urls.type}/Сериалы?sort=kinopoisk-rating-up') Сериалы
                 li
-                    a(href='/#{urls.type}/Мультфильмы?sort=kinopoisk-rating-up') Мультфильмы
+                    a(href='#{protocol}#{domain}/#{urls.type}/Мультфильмы?sort=kinopoisk-rating-up') Мультфильмы
     .clearfix
     .foo-f
         .pull-left.f-copy
             div(style='margin: -12px 0;')
-                a(href='http://CinemaPress.org/') Самообновляемые кино-сайты
+                a(href='https://CinemaPress.org/') Самообновляемые кино-сайты
             .f-copy-comodo © 2016
                 = ' '
-                a(href='http://CinemaPress.org/') CinemaPress
+                a(href='https://CinemaPress.org/') CinemaPress
         .pull-left.f-links
-            a.f-lin-1(href='/') Лучшие фильмы онлайн бесплатно
-            a.f-lin-2(href='/#{urls.type}/Сериалы') Смотреть сериалы онлайн в хорошем качестве
+            a.f-lin-1(href='#{protocol}#{domain}') Лучшие фильмы онлайн бесплатно
+            a.f-lin-2(href='#{protocol}#{domain}/#{urls.type}/Сериалы') Смотреть сериалы онлайн в хорошем качестве
         .pull-left.f-m16 18+
         if social.vk
             .pull-left.f-lin-pravo
