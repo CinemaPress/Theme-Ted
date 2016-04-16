@@ -7,7 +7,7 @@
             span Для связи с администрацией сайта используйте email:
             = ' '
             b#cinemapress
-            script= "document.getElementById('cinemapress').textContent = '" + email + "'.replace('CinemaPress','@');"
+            script!= "document.getElementById('cinemapress').textContent = '" + email.replace('@','.CinemaPress.') + "'.replace('.CinemaPress.','@');"
         .col-m-a.col-m-a2
             .col-mhead
                 i.fa.fa-map-marker
