@@ -12,10 +12,10 @@
                             a(href='#{protocol}#{domain}/#{urls.year}/2016?sort=premiere-up')
                                 i.fa.fa-ticket
                                 strong Новинки кино
-                            a(href='#{protocol}#{domain}/#{urls.type}/Мультфильмы')
+                            a(href='#{protocol}#{domain}/#{urls.type}/#{urls.types.mult}')
                                 i.fa.fa-smile-o
                                 |  Мультфильмы
-                            a(href='#{protocol}#{domain}/#{urls.type}/Сериалы')
+                            a(href='#{protocol}#{domain}/#{urls.type}/#{urls.types.serial}')
                                 i.fa.fa-female
                                 |  Сериалы онлайн
                             .clearfix
@@ -82,11 +82,11 @@
                                 i.fa.fa-caret-right
                                 |  Лучшие из России
         li
-            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/Фильмы') Фильмы
+            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/#{urls.types.movie}') Фильмы
         li
-            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/Сериалы') Сериалы
+            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/#{urls.types.serial}') Сериалы
         li
-            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/Мультфильмы') Мультфильмы
+            a.ff_2d3(href='#{protocol}#{domain}/#{urls.type}/#{urls.types.mult}') Мультфильмы
     .robik2
         a(href='#{protocol}#{domain}') Кино онлайн
     .robik3
